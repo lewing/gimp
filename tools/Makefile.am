@@ -11,14 +11,14 @@ SUBDIRS = $(PDBGEN)
 if OS_WIN32
 
 bin_PROGRAMS = \
-	gimptool-2.0 \
+	gimptool-3.0 \
 	gimp-debug-resume
 
 gimp_debug_resume_SOURCES = gimp-debug-resume.c
 
 else
 
-bin_PROGRAMS = gimptool-2.0
+bin_PROGRAMS = gimptool-3.0
 
 endif
 
@@ -30,10 +30,9 @@ noinst_PROGRAMS = \
 EXTRA_PROGRAMS = \
 	kernelgen
 
+gimptool_3_0_SOURCES = gimptool.c
 
-gimptool_2_0_SOURCES = gimptool.c
-
-gimptool_2_0_LDADD = \
+gimptool_3_0_LDADD = \
 	$(libgimpbase)	\
 	$(GTK_LIBS)
 
