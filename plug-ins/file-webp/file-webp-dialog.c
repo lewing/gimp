@@ -83,7 +83,7 @@ static void
 save_dialog_toggle_scale (GtkWidget *widget,
                           gpointer   data)
 {
-  gimp_scale_entry_set_sensitive (GTK_OBJECT (data),
+  gimp_scale_entry_set_sensitive (data,
                                   ! gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)));
 }
 
@@ -92,27 +92,27 @@ save_dialog (WebPSaveParams *params,
              gint32          image_ID,
              gint32          n_layers)
 {
-  GtkWidget    *dialog;
-  GtkWidget    *vbox;
-  GtkWidget    *label;
-  GtkWidget    *table;
-  GtkWidget    *expander;
-  GtkWidget    *frame;
-  GtkWidget    *vbox2;
-  GtkWidget    *save_exif;
-  GtkWidget    *save_xmp;
-  GtkWidget    *preset_label;
-  GtkListStore *preset_list;
-  GtkWidget    *preset_combo;
-  GtkWidget    *lossless_checkbox;
-  GtkWidget    *animation_checkbox;
-  GtkWidget    *loop_anim_checkbox;
-  GtkObject    *quality_scale;
-  GtkObject    *alpha_quality_scale;
-  gboolean      animation_supported = FALSE;
-  gint          slider1 , slider2;
-  gboolean      run;
-  gchar        *text;
+  GtkWidget     *dialog;
+  GtkWidget     *vbox;
+  GtkWidget     *label;
+  GtkWidget     *table;
+  GtkWidget     *expander;
+  GtkWidget     *frame;
+  GtkWidget     *vbox2;
+  GtkWidget     *save_exif;
+  GtkWidget     *save_xmp;
+  GtkWidget     *preset_label;
+  GtkListStore  *preset_list;
+  GtkWidget     *preset_combo;
+  GtkWidget     *lossless_checkbox;
+  GtkWidget     *animation_checkbox;
+  GtkWidget     *loop_anim_checkbox;
+  GtkAdjustment *quality_scale;
+  GtkAdjustment *alpha_quality_scale;
+  gboolean       animation_supported = FALSE;
+  gint           slider1 , slider2;
+  gboolean       run;
+  gchar         *text;
 
   animation_supported = n_layers > 1;
 
